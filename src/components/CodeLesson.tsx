@@ -1,6 +1,9 @@
 import { useMemo, useState, useRef, useEffect } from "react";
 import { lessons } from "../lib/lessons";
 import { runPython } from "../lib/pyRunner";
+import Calculator from "./Calculator";
+import QuizGame from "./QuizGame";
+import FireworkViewer from "./FireworkViewer";
 
 export default function CodeLesson({ 
   id, 
@@ -50,6 +53,11 @@ export default function CodeLesson({
     }
   };
 
+    // Check if this lesson has special interactive component
+  const hasInteractive = ["w21", "w23", "w24"].includes(lesson.id);
+  const showCodeEditor = !hasInteractive || lesson.id === "w21" || lesson.id === "w23" || lesson.id === "w24";
+
+
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh", paddingBottom: 20 }}>
       <div style={{ padding: "12px 16px" }}>
@@ -63,7 +71,7 @@ export default function CodeLesson({
         {/* Instructions */}
         <div className="card" style={{ marginBottom: 16 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10, flexWrap: "wrap" }}>
-            <div className="badge">Week {lesson.week}</div>
+            <div className="badge">Pelajaran {lesson.week}</div>
             <div className="badge" style={{ background: "linear-gradient(135deg, #fef3c7, #fde68a)" }}>
               Phase {lesson.phase}
             </div>
@@ -129,9 +137,9 @@ export default function CodeLesson({
             <button 
               onClick={run} 
               style={{ flex: 1, minWidth: "120px", fontSize: 13 }}
-              disabled={isRunning}
+              disabled={isRunning || hasInteractive}
             >
-              {isRunning ? "⏳ Running..." : "▶ Run"}
+              {isRunning ? "⏳ Running..." : hasInteractive ? "📱 Use Interactive" : "▶ Run"}
             </button>
             <button 
               className="secondary" 
@@ -143,51 +151,56 @@ export default function CodeLesson({
           </div>
         </div>
 
-        {/* Code Editor */}
-        <div className="card" style={{ marginBottom: 16 }}>
-          <div style={{ 
-            marginBottom: 10, 
-            fontWeight: 800, 
-            display: "flex", 
-            justifyContent: "space-between",
-            alignItems: "center",
-            fontSize: 14
-          }}>
-            <span>💻 Code Editor</span>
-            {usesTurtle && <span style={{ fontSize: 10, color: "#10b981" }}>🐢 Turtle</span>}
+        {/* Code Editor - Hide for interactive lessons */}
+        {showCodeEditor && (
+          <div className="card" style={{ marginBottom: 16 }}>
+            <div style={{ 
+              marginBottom: 10, 
+              fontWeight: 800, 
+              display: "flex", 
+              justifyContent: "space-between",
+              alignItems: "center",
+              fontSize: 14
+            }}>
+              <span>💻 Code Editor</span>
+              {usesTurtle && <span style={{ fontSize: 10, color: "#10b981" }}>🐢 Turtle</span>}
+            </div>
+            <textarea
+              className="input"
+              style={{ 
+                height: 250, 
+                fontFamily: "'Consolas', 'Monaco', 'Courier New', monospace",
+                fontSize: 12,
+                lineHeight: 1.5,
+                resize: "vertical"
+              }}
+              value={code}
+              onChange={e => setCode(e.target.value)}
+              placeholder="Type your Python code here..."
+            />
           </div>
-          <textarea
-            className="input"
-            style={{ 
-              height: 250, 
-              fontFamily: "'Consolas', 'Monaco', 'Courier New', monospace",
-              fontSize: 12,
-              lineHeight: 1.5,
-              resize: "vertical"
-            }}
-            value={code}
-            onChange={e => setCode(e.target.value)}
-            placeholder="Type your Python code here..."
-          />
-        </div>
+        )}
 
-        {/* Output */}
-        <div className="card" style={{ marginBottom: showCanvas ? 16 : 0 }}>
-          <div style={{ fontWeight: 800, marginBottom: 8, fontSize: 14 }}>📺 Output</div>
-          <div className="output-panel" style={{ minHeight: 120 }}>
-            <pre style={{ margin: 0, whiteSpace: "pre-wrap", fontSize: 11 }}>
-              {out || "👉 Click 'Run' to see output..."}
-            </pre>
-            {err && (
-              <pre style={{ color: "#fca5a5", marginTop: 10, whiteSpace: "pre-wrap", fontSize: 11 }}>
-                {err}
+                {/* Output - Only show if NOT interactive */}
+        {!hasInteractive && (
+
+          <div className="card" style={{ marginBottom: showCanvas ? 16 : 0 }}>
+            <div style={{ fontWeight: 800, marginBottom: 8, fontSize: 14 }}>📺 Output</div>
+            <div className="output-panel" style={{ minHeight: 120 }}>
+              <pre style={{ margin: 0, whiteSpace: "pre-wrap", fontSize: 11 }}>
+                {out || "👉 Click 'Run' to see output..."}
               </pre>
-            )}
+              {err && (
+                <pre style={{ color: "#fca5a5", marginTop: 10, whiteSpace: "pre-wrap", fontSize: 11 }}>
+                  {err}
+                </pre>
+              )}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Turtle Canvas */}
-        {showCanvas && (
+        {showCanvas && !hasInteractive && (
           <div className="card">
             <div style={{ fontWeight: 800, marginBottom: 10, fontSize: 14 }}>
               🐢 Turtle Graphics
@@ -210,6 +223,25 @@ export default function CodeLesson({
             <div style={{ fontSize: 10, color: "#64748b", marginTop: 8, textAlign: "center" }}>
               Graphics appear here when you run turtle code
             </div>
+          </div>
+        )}
+
+        {/* Interactive Components */}
+        {lesson.id === "w21" && (
+          <div style={{ marginTop: 16 }}>
+            <Calculator />
+          </div>
+        )}
+
+        {lesson.id === "w23" && (
+          <div style={{ marginTop: 16 }}>
+            <QuizGame />
+          </div>
+        )}
+
+        {lesson.id === "w24" && (
+          <div style={{ marginTop: 16 }}>
+            <FireworkViewer />
           </div>
         )}
       </div>

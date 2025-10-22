@@ -11,381 +11,364 @@ export type Lesson = {
 
 export const lessons: Lesson[] = [
   // ========== PHASE 1: PYTHON BASICS (MINGGU 1-4) ==========
-  {
-    id: "w1",
-    week: 1,
-    title: "Hello Python! First Program",
-    phase: 1,
-    codeStarter: `print("Hello World!")
-print("My name is Ali")
-print("I love pizza")
-print("Python is fun!")
-
-# Experiment dengan pattern
-print("*" * 10)
-print("=" * 20)`,
-    instructions: [
-      "🐍 Cetak mesej pertama kamu!",
-      "Tukar 'Ali' kepada nama kamu sendiri",
-      "Cuba print 5 ayat tentang diri kamu",
-      "Tekan Run dan lihat magic berlaku! ✨",
-    ],
-    challenge: "Print 10 benda yang kamu suka (makanan, warna, hobi)",
-  },
-
-   {
-    id: "w2",
-    week: 2,
-    title: "Print & Simple Math",
-    phase: 1,
-    codeStarter: `# Python boleh jadi calculator!
-print("=== MATH OPERATIONS ===")
-print()
-
-print("Addition:")
-print("10 + 5 =", 10 + 5)
-print()
-
-print("Subtraction:")
-print("20 - 7 =", 20 - 7)
-print()
-
-print("Multiplication:")
-print("6 × 4 =", 6 * 4)
-print()
-
-print("Division:")
-print("20 ÷ 4 =", 20 / 4)
-print()
-
-print("=== AGE CALCULATOR ===")
-print()
-age = 7
-years_later = 5
-print("I am", age, "years old")
-print("In", years_later, "years, I will be:", age + years_later)
-print()
-
-print("=== PATTERN FUN ===")
-print("🎉" * 5)
-print("=" * 20)
-print("★" * 10)`,
-    instructions: [
-      "🔢 Computer boleh kira math!",
-      "Cuba tukar nombor dan run semula",
-      "Buat age calculator untuk umur kamu",
-      "Lihat pattern dengan * operator",
-    ],
-    challenge: "Buat 5 soalan math dan let computer solve dengan print yang cantik!",
-  },
+{
+  id: "w1",
+  week: 1,
+  title: "Pelajaran 1: Hello Python!",
+  phase: 1,
+  codeStarter: `
+print("Hello World!\\n")
+print("Nama saya Ali.\\n")
+print("Saya umur 7 tahun.\\n")
+print("Python memang menyeronokkan!\\n")
+print("Saya suka makan pizza.\\n")
+print("=" * 20 + "\\n")
+print("Ini baris baru.\\n")
+print("Mari belajar Python!\\n")
+`,
+  instructions: [
+    "Cetak mesej baris demi baris supaya senang baca.",
+    "print() dengan \\n di akhir akan hasilkan baris baru.",
+    "Tukar setiap info kepada maklumat sendiri."
+  ],
+  challenge: "Senaraikan 3 kawan guna print, satu baris satu nama."
+},
+{
+  id: "w2",
+  week: 2,
+  title: "Pelajaran 2: Print & Math",
+  phase: 1,
+  codeStarter: `
+print("=== OPERASI MATEMATIK ===\\n")
+print("Tambah: 10 + 5 =", 10 + 5, "\\n")
+print("Tolak: 20 - 7 =", 20 - 7, "\\n")
+print("Darab: 6 * 4 =", 6 * 4, "\\n")
+print("Bahagi: 20 / 4 =", 20 / 4, "\\n")
+print("=" * 30 + "\\n")
+print("Umur saya 7 tahun. Dalam 5 tahun, saya akan jadi", 7 + 5, "tahun!\\n")
+print("Pattern:", "🎉" * 5, "\\n")
+`,
+  instructions: [
+    "Cetak setiap operasi pada baris sendiri.",
+    "Gunakan operasi tambah (+), tolak (-), darab (*) dan bahagi (/).",
+    "Akhir print dengan \\n supaya line spacing kemas."
+  ],
+  challenge: "Buat operasi matematik sendiri dengan print pada baris baru untuk setiap soalan."
+},
 
 
   {
-    id: "w3",
-    week: 3,
-    title: "Variables - Kotak Ajaib",
-    phase: 1,
-    codeStarter: `# Variables simpan maklumat dalam "kotak"
+  id: "w3",
+  week: 3,
+  title: "Pelajaran 3: Variables — Kotak Ajaib",
+  phase: 1,
+  codeStarter: `
+print("=== KONSEP VARIABLES ===\\n")
+print("Variable ibarat kotak yang simpan sesuatu.\\n")
+print("Kotak bertanda nama: nama, umur, warna.\\n")
 name = "Ali"
-age = 7
-favorite_color = "blue"
+print("Nama saya:", name, "\\n")
+umur = 8
+print("Umur saya:", umur, "\\n")
+warna_kegemaran = "merah"
+print("Warna kegemaran:", warna_kegemaran, "\\n")
+# Ubah isi kotak (variable)
+umur = umur + 1
+print("Umur tahun depan:", umur, "\\n")
+`,
+  instructions: [
+    "Variable = tempat simpan data dalam memori.",
+    "Boleh diubah bila-bila masa (contoh: umur bertambah tiap tahun).",
+    "Setiap variable ada nama, boleh diakses semula.",
+    "Bayangkan kotak AJAIB boleh tukar isi bila-bila sahaja!"
+  ],
+  challenge: "Cipta sekurang-kurangnya 4 lagi variable sendiri, dan print setiap satunya pada baris berlainan."
+},
 
-print("Name:", name)
-print("Age:", age)
-print("Color:", favorite_color)
-
-# Update nilai variable
-score = 10
-print("Score:", score)
-score = score + 5
-print("New score:", score)
-
-# Game simulation
-lives = 3
-print("Starting lives:", lives)
-lives = lives - 1
-print("Lives left:", lives)`,
-    instructions: [
-      "📦 Variables macam kotak untuk simpan data",
-      "Tukar nama, umur, warna ikut kamu punya",
-      "Cuba tambah variable baru: favorite_food",
-      "Lihat macam mana score berubah!",
-    ],
-    challenge: "Buat score keeper untuk game: start 0, tambah 10, tambah 20, print total",
-  },
 
   {
-    id: "w4",
-    week: 4,
-    title: "Input - Computer Dengar Kita!",
-    phase: 1,
-    codeStarter: `# BROWSER VERSION (simulation)
-# Real input() needs Thonny!
-
-# Simulate user input
-name = "Ali"  # Tukar ni kepada nama kamu
-age = "7"     # Tukar ni kepada umur kamu
-color = "blue"  # Tukar ni kepada warna favorite
-
-print("=" * 30)
-print("Hello", name + "! 👋")
-print("You are", age, "years old!")
-print("Your favorite color is", color)
-print("Nice to meet you!")
-print("=" * 30)
-
-# For REAL input(), copy this to Thonny:
-# name = input("What is your name? ")
-# age = input("How old are you? ")
-# color = input("Favorite color? ")`,
-    instructions: [
-      "💬 Browser tak support input(), jadi kita simulate!",
-      "Tukar values untuk name, age, color",
-      "Run dan lihat output!",
-      "💡 Copy kod dalam comment ke Thonny untuk real input!",
-    ],
-    challenge: "Tambah 2 variables lagi: hobby dan food, then print semua!",
-  },
+  id: "w4",
+  week: 4,
+  title: "Pelajaran 4: String Fun Tanpa input()!",
+  phase: 1,
+  codeStarter: `
+print("=== NAMA SENI ===\\n")
+nama = "Hassan"
+print("Nama asal:", nama, "\\n")
+print("UPPERCASE:", nama.upper(), "\\n")
+print("lowercase:", nama.lower(), "\\n")
+print("Panjang nama:", len(nama), "\\n")
+print("Emoji pattern:", "🎈" * len(nama), "\\n")
+print("Setiap huruf 3 kali:")
+for c in nama:
+    print(c * 3)
+print()
+print("Gabung text dengan + :", "Hello, " + nama + "!")`,
+  instructions: [
+    "Bermain dengan nama dan string, tukar variable, lihat perubahan.",
+    "Tiada guna input(), semua variable boleh tukar awal-awal dalam kod.",
+    "Gabung string, tukar ke huruf besar/kecil dan hasilkan nama seni."
+  ],
+  challenge: "Tukar variable nama kepada nama kamu dan hasilkan pattern sendiri."
+},
 
   // ========== PHASE 2: TURTLE GRAPHICS (MINGGU 5-9) ==========
-    {
+  {
     id: "w5",
     week: 5,
-    title: "Turtle Graphics - Square",
+    title: "Turtle Graphics - Kenalan",
     phase: 2,
-    codeStarter: `# Turtle graphics in browser!
-import turtle
-
-t = turtle.Turtle()
-
-# Draw square
-for i in range(4):
-    t.forward(100)
-    t.right(90)
-
-print("Square drawn!")`,
+    codeStarter: `# BROWSER VERSION - Simulate turtle
+print("🐢 TURTLE DRAWING SIMULATION")
+print("=" * 40)
+print()
+print("Drawing a SQUARE:")
+print("Step 1: Move forward 100 →")
+print("Step 2: Turn right 90° ⤵")
+print("Step 3: Move forward 100 →")
+print("Step 4: Turn right 90° ⤵")
+print("Step 5: Move forward 100 →")
+print("Step 6: Turn right 90° ⤵")
+print("Step 7: Move forward 100 →")
+print()
+print("✅ Square complete!")
+print()
+print("=" * 40)
+print("💡 For REAL turtle graphics:")
+print("Copy this code to Thonny:")
+print()
+print("import turtle")
+print("t = turtle.Turtle()")
+print("for i in range(4):")
+print("    t.forward(100)")
+print("    t.right(90)")
+print("turtle.done()")`,
     instructions: [
-      "🐢 Real turtle graphics dalam browser!",
-      "Cuba run dan lihat square di sebelah!",
-      "forward() gerak ke depan",
-      "right() pusing kanan",
+      "🐢 Learn turtle commands!",
+      "Turtle gerak forward, turn right/left",
+      "Kod ni simulate apa yang turtle buat",
+      "💡 Untuk lukis betul, copy ke Thonny!",
     ],
-    challenge: "Cuba lukis rectangle: forward(150), right(90), forward(100)...",
+    challenge: "Plan sequence untuk lukis TRIANGLE (3 sides, turn 120°)",
   },
 
   {
     id: "w6",
     week: 6,
-    title: "Turtle - Multiple Shapes",
+    title: "Turtle - Lukis Shapes",
     phase: 2,
-    codeStarter: `import turtle
-
-t = turtle.Turtle()
+    codeStarter: `# BROWSER VERSION - Simulate shapes
+print("🎨 SHAPE DRAWING SIMULATION")
+print("=" * 40)
+print()
 
 # Square
+print("Drawing SQUARE (4 sides):")
 for i in range(4):
-    t.forward(80)
-    t.right(90)
+    print(f"  Side {i+1}: forward 100, turn right 90°")
+print("✅ Square done!")
+print()
 
-# Triangle
-t.penup()
-t.forward(120)
-t.pendown()
-
+# Triangle  
+print("Drawing TRIANGLE (3 sides):")
 for i in range(3):
-    t.forward(80)
-    t.left(120)
+    print(f"  Side {i+1}: forward 100, turn left 120°")
+print("✅ Triangle done!")
+print()
 
-print("Shapes drawn!")`,
+# Pentagon
+print("Drawing PENTAGON (5 sides):")
+for i in range(5):
+    print(f"  Side {i+1}: forward 100, turn right 72°")
+print("✅ Pentagon done!")
+print()
+
+print("=" * 40)
+print("💡 Copy to Thonny for real graphics!")`,
     instructions: [
-      "🎨 Lukis square dan triangle!",
-      "penup() - stop drawing",
-      "pendown() - start drawing",
-      "Cuba tukar sizes!",
+      "🎨 Simulate multiple shapes!",
+      "Lihat pattern: 4 sides = 90°, 3 sides = 120°",
+      "Formula: angle = 360 / sides",
+      "Copy ke Thonny untuk lihat lukisan sebenar!",
     ],
-    challenge: "Tambah pentagon (5 sides, 72° each turn)",
+    challenge: "Calculate: Hexagon (6 sides) needs berapa degree?",
   },
 
   {
     id: "w7",
     week: 7,
-    title: "Colors & Patterns",
+    title: "Colors & Pen Size",
     phase: 2,
-    codeStarter: `import turtle
+    codeStarter: `# BROWSER VERSION - Show color pattern
+colors = ["red", "orange", "yellow", "green", "blue", "purple"]
 
-t = turtle.Turtle()
+print("🌈 RAINBOW PATTERN SIMULATION")
+print("=" * 40)
+print()
 
-colors = ["red", "blue", "green", "orange", "purple"]
+for i in range(6):
+    color = colors[i]
+    size = i + 1
+    print(f"Line {i+1}:")
+    print(f"  Color: {color}")
+    print(f"  Pen size: {size}")
+    print(f"  Draw forward 100, turn right 60°")
+    print()
 
-for i in range(5):
-    t.pencolor(colors[i])
-    t.pensize(i + 1)
-    t.forward(100)
-    t.right(144)
-
-print("Rainbow star!")`,
+print("✅ Rainbow star pattern complete!")
+print()
+print("=" * 40)
+print("💡 In Thonny, colors akan display betul!")`,
     instructions: [
-      "🌈 Rainbow colors!",
-      "pencolor() tukar warna",
-      "pensize() tukar ketebalan",
-      "Cuba tukar colors!",
+      "🌈 Working with colors and sizes!",
+      "Lihat pattern warna berubah",
+      "Pen size bertambah setiap kali",
+      "Copy ke Thonny untuk rainbow graphics!",
     ],
-    challenge: "Buat circle dengan 8 warna berbeza",
+    challenge: "Tambah 2 warna lagi dalam list: pink, cyan",
   },
 
   {
     id: "w8",
     week: 8,
-    title: "Spiral Pattern",
+    title: "Loops - For Loop Magic",
     phase: 2,
-    codeStarter: `import turtle
+    codeStarter: `# BROWSER VERSION - Spiral simulation
+import math
 
-t = turtle.Turtle()
+print("🌀 RAINBOW SPIRAL SIMULATION")
+print("=" * 40)
+print()
 
 colors = ["red", "orange", "yellow", "green", "blue", "purple"]
 
-for i in range(36):
-    t.pencolor(colors[i % 6])
-    t.forward(100)
-    t.right(170)
+print("Creating spiral with 36 lines:")
+print()
 
-print("Beautiful spiral!")`,
+for i in range(36):
+    color = colors[i % 6]
+    angle = i * 170
+    print(f"Line {i+1}: {color} - angle {angle}°")
+    
+    if i % 6 == 0:
+        print()  # Blank line setiap 6 lines
+
+print()
+print("✅ Beautiful spiral pattern!")
+print("=" * 40)`,
     instructions: [
-      "🌀 Spiral magic!",
-      "Loop creates repeating pattern",
-      "% 6 makes colors repeat",
-      "Cuba tukar angle!",
+      "🌀 Loops buat pattern berulang!",
+      "36 lines creates spiral effect",
+      "Colors rotate using modulo (% 6)",
+      "Copy ke Thonny untuk beautiful graphics!",
     ],
-    challenge: "Tukar 170 kepada 165, lihat pattern baru!",
+    challenge: "Cuba tukar 36 kepada 50, lihat apa jadi dalam simulation!",
   },
 
   {
     id: "w9",
     week: 9,
-    title: "Star Pattern",
+    title: "Loops - Draw Patterns",
     phase: 2,
-    codeStarter: `import turtle
+    codeStarter: `# BROWSER VERSION - Pattern simulation
+print("⭐ STAR PATTERN SIMULATION")
+print("=" * 40)
+print()
 
-t = turtle.Turtle()
-t.pencolor("gold")
-
-# Big star
+# One big star
+print("Drawing BIG STAR:")
 for i in range(5):
-    t.forward(150)
-    t.right(144)
+    print(f"  Point {i+1}: forward 150, turn right 144°")
+print("✅ Big star done!")
+print()
 
-print("Star complete!")`,
+# Multiple small stars
+print("Drawing 10 SMALL STARS in a row:")
+for star in range(10):
+    print(f"Star {star+1}:")
+    for point in range(5):
+        print(f"  Point {point+1}: forward 50, right 144°")
+    print(f"  Move to next position")
+    print()
+
+print("✅ Star pattern complete! ⭐")
+print("=" * 40)`,
     instructions: [
-      "⭐ Draw star pattern!",
-      "5 points, 144° turns",
-      "Cuba tukar warna kepada 'blue'",
-      "Cuba tukar size kepada 200",
+      "⭐ Nested loops - loop dalam loop!",
+      "Outer loop: how many stars",
+      "Inner loop: draw each star",
+      "This creates repeating patterns!",
     ],
-    challenge: "Buat 3 stars dengan sizes berbeza",
+    challenge: "Plan pattern untuk 5 hexagons (6 sides each) in a row",
   },
-
 
   // ========== PHASE 3: LOGIC & DECISIONS (MINGGU 10-14) ==========
   {
-    id: "w10",
-    week: 10,
-    title: "If Statements - Make Decisions",
-    phase: 3,
-    codeStarter: `# BROWSER VERSION - Decisions!
-print("🤔 DECISION MAKING")
-print("=" * 40)
+  id: "w10",
+  week: 10,
+  title: "Pelajaran 10: If Statement — buat keputusan",
+  phase: 3,
+  codeStarter: `
+print("=== IF: Komputer buat keputusan ===\\n")
+umur = 12
+print("Umur murid:", umur)
+if umur >= 13:
+    print("Remaja!\\n")
+if umur < 13:
+    print("Kanak-kanak!\\n")
 print()
-
-# Age check (simulate)
-age = 8  # Tukar ni!
-
-print(f"Your age: {age}")
-
-if age >= 10:
-    print("✅ You are 10 or older! 🎉")
-
-if age < 10:
-    print("✅ You are younger than 10! 🎈")
-
-print()
-
-# Temperature check
-temp = 32  # Tukar ni!
-
-print(f"Temperature: {temp}°C")
-
-if temp > 30:
-    print("🔥 It's hot! Drink water!")
-
-if temp < 20:
-    print("🧊 It's cold! Wear jacket!")
-
-if temp >= 20 and temp <= 30:
-    print("😊 Perfect weather!")
-
-print()
-print("=" * 40)`,
-    instructions: [
-      "🤔 If statements check conditions",
-      "Tukar nilai age dan temp",
-      "Run berkali-kali dengan nilai berbeza",
-      "Computer makes different decisions!",
-    ],
-    challenge: "Tambah score checker: >80='Excellent!', >60='Good!', >40='OK!', else='Try harder!'",
-  },
-
-  {
-    id: "w11",
-    week: 11,
-    title: "If-Else - Two Choices",
-    phase: 3,
-    codeStarter: `# BROWSER VERSION
-print("🔀 IF-ELSE DECISIONS")
-print("=" * 40)
-print()
-
-# Age check
-age = 12  # Tukar nilai ni!
-
-print(f"Age: {age}")
-if age >= 13:
-    print("✅ You are a teenager! 🎮")
+markah = 60
+if markah >= 80:
+    print("Lulus cemerlang!\\n")
+elif markah >= 50:
+    print("Lulus sahaja!\\n")
 else:
-    print("✅ You are a kid! 🎨")
-
+    print("Cuba lagi!\\n")
 print()
-
-# Even or Odd
-number = 7  # Tukar nilai ni!
-
-print(f"Number: {number}")
-if number % 2 == 0:
-    print(f"✅ {number} is EVEN! ✌️")
+kawan = "Ali"
+if kawan == "Ali":
+    print("Ali hadir hari ni!\\n")
+if kawan != "Ali":
+    print("Cari siapa kawan hari ni.\\n")
+`,
+  instructions: [
+    "If = JIKA sesuatu syarat benar, jalankan sesuatu arahan.",
+    "Boleh guna lebih 1 syarat (if, elif, else), == bermaksud sama, != bermaksud tidak sama.",
+    "Cuba tukar nilai variable dan lihat keputusan."
+  ],
+  challenge: "Tambah if decision untuk periksa warna (jika warna merah print berhenti! dan sebagainya)."
+},
+{
+  id: "w11",
+  week: 11,
+  title: "Pelajaran 11: If-Else (Dua Pilihan)",
+  phase: 3,
+  codeStarter: `
+print("=== GUNA IF-ELSE, KENA PILIH! ===\\n")
+mark = 45
+if mark >= 50:
+    print("Tahniah, anda LULUS!")
 else:
-    print(f"✅ {number} is ODD! ☝️")
-
-print()
-
-# Password check
-password = "python123"  # Tukar password!
-user_input = "python123"  # Tukar input!
-
-print(f"Your password: {user_input}")
-if password == user_input:
-    print("✅ Access granted! 🎉")
+    print("Gagal, cuba lagi.\\n")
+umur = 16
+if umur >= 17:
+    print("Boleh ambil lesen motor!\\n")
 else:
-    print("❌ Wrong password! Try again!")
+    print("Kena tunggu lagi tahun depan.\\n")
+num = 9
+if num % 2 == 0:
+    print(num, "genap.\\n")
+else:
+    print(num, "ganjil.\\n")
+`,
+  instructions: [
+    "If-Else = pilih salah satu hasil (sama macam lampu isyarat, jalan atau berhenti).",
+    "Gunakan if syarat:, else: untuk dua pilihan sahaja, bukan banyak.",
+    "Cuba tukar variable mark, umur, num untuk faham sendiri."
+  ],
+  challenge: "Cipta if-else untuk tentukan sama ada nombor positif atau negatif."
+},
 
-print()
-print("=" * 40)`,
-    instructions: [
-      "🔀 Else: if condition false, do this",
-      "Tukar values dan test berbeza scenarios",
-      "Even/Odd checker guna modulo (%)",
-      "Password checker guna == (equal)",
-    ],
-    challenge: "Buat grade checker: score >= 50 = 'PASS', else = 'FAIL'",
-  },
 
   {
     id: "w12",
@@ -438,329 +421,222 @@ print("=" * 40)`,
     challenge: "Buat coin flipper: random heads atau tails",
   },
 
-  {
-    id: "w13",
-    week: 13,
-    title: "Lists - Collection Fun",
-    phase: 3,
-    codeStarter: `# Lists - Works perfectly!
-print("📝 WORKING WITH LISTS")
-print("=" * 40)
+ {
+  id: "w13",
+  week: 13,
+  title: "Pelajaran 13: Lists — Senarai untuk Data Banyak",
+  phase: 3,
+  codeStarter: `
+print("=== LISTS — Senarai Data ===\\n")
+buah = ["epal", "pisang", "betik"]
+for x in buah:
+    print("Buah:", x)
 print()
-
-# Favorite things
-fruits = ["apple", "banana", "orange", "mango"]
-colors = ["red", "blue", "green", "yellow", "purple"]
-
-print("My favorite fruits:")
-for fruit in fruits:
-    print("🍎", fruit)
-
+warna = ["merah", "biru", "kuning", "hijau"]
+print("Warna kegemaran:")
+for w in warna:
+    print(w)
 print()
-print("My favorite colors:")
-for color in colors:
-    print("🎨", color)
+print("Bilangan buah:", len(buah), "\\n")
+buah.append("limau")
+print("Buah selepas tambah:", buah, "\\n")
+print("Buah ke-1:", buah[0], "Buah kedua:", buah[1], "Buah terakhir:", buah[-1], "\\n")
+`,
+  instructions: [
+    "List = [item1, item2, ...] boleh wording apa-apa, akses pakai [index].",
+    "Boleh loop (for x in ...), .append() untuk tambah ke belakang list.",
+    "Cuba buat shopping list sendiri dan print setiap barang satu baris."
+  ],
+  challenge: "Buat shopping list barang dapur, print semuanya dengan for loop."
+},
 
-print()
-
-# Add new item
-print("Adding strawberry...")
-fruits.append("strawberry")
-print("Updated fruits:", fruits)
-
-print()
-
-# Access specific items
-print("First fruit:", fruits[0])
-print("Last fruit:", fruits[-1])
-print("Second fruit:", fruits[1])
-
-print()
-
-# List length
-print("Total fruits:", len(fruits))
-print("Total colors:", len(colors))
-
-print()
-print("=" * 40)`,
-    instructions: [
-      "📝 Lists store multiple items!",
-      "Loop through list dengan for",
-      "append() adds new item",
-      "Index [0] = first, [-1] = last",
-      "len() tells how many items",
-    ],
-    challenge: "Buat shopping list dengan 5 items, print dengan numbering (1. milk, 2. bread...)",
-  },
 
   {
-    id: "w14",
-    week: 14,
-    title: "Mini Project: Guessing Game",
-    phase: 3,
-    codeStarter: `import random
-
-# NUMBER GUESSING GAME (browser simulation)
+  id: "w14",
+  week: 14,
+  title: "Pelajaran 14: Teka Nombor Canggih",
+  phase: 3,
+  codeStarter: `
+import random
 print("=" * 40)
-print("🎯 NUMBER GUESSING GAME (Simulation)")
-print("=" * 40)
-print()
-
+print("TEKA NOMBOR 1-10")
 secret = random.randint(1, 10)
-print(f"Secret number generated: (between 1-10)")
-print()
-
-# Simulate 3 guesses
-guesses = [5, 7, 8]  # Tukar values ni!
-attempts = 0
-
-print("Let's simulate 3 guesses:")
-print()
-
-for guess in guesses:
-    attempts += 1
-    print(f"Attempt {attempts}: You guess {guess}")
-    
-    if guess < secret:
-        print("📉 Too low! Try again!")
-    elif guess > secret:
-        print("📈 Too high! Try again!")
-    else:
-        print(f"🎉 YOU GOT IT! The number was {secret}!")
-        print(f"You took {attempts} attempts!")
-        print("⭐" * attempts)
+guesses = [3, 6, 8, 4, 9]
+for idx, guess in enumerate(guesses, 1):
+    print(f"Percubaan {idx}: Teka {guess}")
+    if guess == secret:
+        print("Tepat! Nombor ialah", secret, "\\n")
         break
-    print()
+    elif guess < secret:
+        print("Terlalu rendah.\\n")
+    else:
+        print("Terlalu tinggi.\\n")
+else:
+    print("Habislah, tak jumpa nombor tu. Jawapan:", secret)
+print("=" * 40)
+`,
+  instructions: [
+    "Cuba tukar guesses. Kod print setiap percubaan dengan perenggan.",
+    "Gunakan for ... enumerate supaya index cantik.",
+    "Hint: boleh tambah attempts, range 1-20. Cuba malu-malu cubaan sendiri!"
+  ],
+  challenge: "Ubah kod supaya guesses = [1,2,3,4,5,6,7,8,9,10] — boleh teka tepat!"
+},
 
-if guess != secret:
-    print(f"Game Over! The secret was {secret}")
-
-print()
-print("💡 For real game with input(), copy to Thonny!")
-print("=" * 40)`,
-    instructions: [
-      "🎮 Complete guessing game!",
-      "Tukar nilai dalam guesses list",
-      "Computer gives hints: too high/too low",
-      "Game ends when guess matches secret",
-      "Copy ke Thonny untuk input() version!",
-    ],
-    challenge: "Tukar range to 1-20 dan try simulate finding number",
-  },
 
   // ========== PHASE 4: FUNCTIONS & POWER (MINGGU 15-19) ==========
-  {
-    id: "w15",
-    week: 15,
-    title: "Functions - Code Blocks",
-    phase: 4,
-    codeStarter: `# FUNCTIONS - Organize code!
-print("🔧 LEARNING FUNCTIONS")
-print("=" * 40)
+ {
+  id: "w15",
+  week: 15,
+  title: "Pelajaran 15: Functions — Kotak Arah",
+  phase: 4,
+  codeStarter: `
+print("=== APA ITU FUNGSI? ===\\n")
+print("Fungsi = Kumpulan kod yang boleh dipanggil bila perlu.\\n")
+def say_hello(nama):
+    print(f"Hello, {nama}! Selamat datang!\\n")
+say_hello("Rina")
+say_hello("Ahmad")
 print()
+def tambah_dua(x):
+    return x + 2
+hasil = tambah_dua(7)
+print("7 + 2 =", hasil, "\\n")
+`,
+  instructions: [
+    "Define fungsi menggunakan def ... , boleh bagi input (parameter), boleh return output.",
+    "Fungsi jimatkan kod supaya tidak ulang banyak kali.",
+    "Boleh test fungsi dengan banyak input berbeza."
+  ],
+  challenge: "Cipta fungsi yang return ganda 3 kali (triple(x)), dan print triple(5), triple(9)."
+},
 
-def say_hello():
-    print("👋 Hello!")
-    print("Welcome to Python!")
-    print("-" * 30)
 
-def say_goodbye():
-    print("👋 Goodbye!")
-    print("See you next time!")
-    print("-" * 30)
+ {
+  id: "w16",
+  week: 16,
+  title: "Pelajaran 16: Functions + Lukis Rumah",
+  phase: 4,
+  codeStarter: `import turtle
 
-# Call functions
-say_hello()
-print("Let's code together!")
-print()
-say_goodbye()
+t = turtle.Turtle()
+t.speed(2)
+t.pencolor("brown")
+t.fillcolor("brown")
 
-print()
+# BODY (dari bawah kanan, hadap ke atas)
+t.begin_fill()
+for _ in range(4):
+    t.forward(120)
+    t.left(90)
+t.end_fill()
 
-# Function with parameter
-def greet(name):
-    print(f"Hello, {name}! 🌟")
+# ROOF (triangle atas badan)
+t.pencolor("red")
+t.fillcolor("red")
+t.left(90)
+t.forward(120)
+t.right(30)
+t.begin_fill()
+for _ in range(3):
+    t.forward(120)
+    t.right(120)
+t.end_fill()
 
-print("Greeting friends:")
-greet("Ali")
-greet("Sarah")
-greet("Ahmad")
+# TURN ke pintu (bawah tengah)
+t.right(150)
+t.forward(120)
+t.left(90)
+t.forward(40)
+t.right(90)
 
-print()
+# DOOR
+t.pencolor("black")
+t.fillcolor("#543d23")
+t.begin_fill()
+for _ in range(2):
+    t.left(90)
+    t.forward(40)
+    t.left(90)
+t.end_fill()
 
-# Function with return
-def add(a, b):
-    return a + b
-
-result = add(10, 5)
-print(f"10 + 5 = {result}")
-
-result2 = add(100, 50)
-print(f"100 + 50 = {result2}")
-
-print()
-print("=" * 40)`,
-    instructions: [
-      "🔧 Functions organize code",
-      "Define once, call many times",
-      "Parameters make functions flexible",
-      "return sends value back",
-      "Reusable dan clean code!",
-    ],
-    challenge: "Buat function multiply(a, b) yang return a * b, test dengan 3 examples",
-  },
-
-  {
-    id: "w16",
-    week: 16,
-    title: "Functions dengan Turtle",
-    phase: 4,
-    codeStarter: `# BROWSER SIMULATION - Functions for shapes
-print("🏠 HOUSE DRAWING SIMULATION")
-print("=" * 40)
-print()
-
-def draw_square():
-    print("Drawing SQUARE (house body):")
-    for i in range(4):
-        print(f"  Side {i+1}: forward 100, right 90°")
-    print("✅ Square done!")
-    print()
-
-def draw_triangle():
-    print("Drawing TRIANGLE (roof):")
-    for i in range(3):
-        print(f"  Side {i+1}: forward 100, left 120°")
-    print("✅ Triangle done!")
-    print()
-
-def draw_rectangle(width, height):
-    print(f"Drawing RECTANGLE ({width}x{height}):")
-    print(f"  forward {width}, right 90°")
-    print(f"  forward {height}, right 90°")
-    print(f"  forward {width}, right 90°")
-    print(f"  forward {height}")
-    print("✅ Rectangle done!")
-    print()
-
-# Build house!
-print("Building a HOUSE:")
-print()
-draw_square()        # Body
-draw_triangle()      # Roof
-draw_rectangle(30, 40)  # Door
-
-print("🏠 House complete!")
-print()
-print("=" * 40)
-print("💡 Copy to Thonny for real graphics!")`,
-    instructions: [
-      "🏠 Functions for reusable shapes!",
-      "Each function draws one shape",
-      "Combine functions to build complex drawings",
-      "Parameters customize size",
-      "Copy to Thonny untuk lukis betul!",
-    ],
-    challenge: "Plan function draw_star() dengan parameter size",
-  },
-
-  {
-    id: "w17",
-    week: 17,
-    title: "Nested Loops - Power Up!",
-    phase: 4,
-    codeStarter: `# NESTED LOOPS - Grid pattern
-print("🎨 COLORFUL GRID SIMULATION")
-print("=" * 40)
-print()
-
-colors = ["red", "orange", "yellow", "green", "blue", "purple"]
-
-print("Creating 6x6 colored grid:")
-print()
-
-for row in range(6):
-    print(f"Row {row + 1}:")
-    for col in range(6):
-        color = colors[col]
-        print(f"  [{color:7}]", end="")
-    print()  # New line after each row
-    print()
-
-print()
-print("✅ Grid pattern complete!")
-print("=" * 40)
-print("💡 In Thonny with turtle, ini jadi colorful squares!")`,
-    instructions: [
-      "🎨 Nested loops = loop dalam loop!",
-      "Outer loop: rows",
-      "Inner loop: columns",
-      "Creates grid/matrix patterns",
-      "Powerful untuk complex designs!",
-    ],
-    challenge: "Modify untuk 8x8 grid dengan tambah 2 warna",
-  },
-
-  {
-    id: "w18",
-    week: 18,
-    title: "While Loops - Keep Going",
-    phase: 4,
-    codeStarter: `# WHILE LOOPS - Run until condition false
-print("🚀 ROCKET COUNTDOWN")
-print("=" * 40)
-print()
-
-count = 10
-
-while count > 0:
-    print(count)
-    count = count - 1
-
-print("BLAST OFF! 🚀")
-print()
-
-# Collecting items (simulation)
-print("=" * 40)
-print("🎮 ITEM COLLECTOR (Simulation)")
-print("=" * 40)
-print()
-
-items = 0
-target = 5
-actions = ["yes", "yes", "no", "yes", "no", "yes", "yes"]
-
-print(f"Goal: Collect {target} items")
-print()
-
-for action in actions:
-    if items >= target:
-        break
+t.hideturtle()`,
     
-    print(f"Collect item? {action}")
-    if action == "yes":
-        items += 1
-        print(f"  ✅ Items collected: {items}/{target}")
+  instructions: [
+    "🏠 Rumah LENGKAP dengan body, bumbung, pintu, tingkap!",
+    "Guna goto() untuk lukis shape tepat",
+    "begin_fill() dan end_fill() untuk warna solid",
+    "Semua shape centered dalam canvas!"
+  ],
+  challenge: "Tambah matahari (circle) atau pokok sebelah rumah!"
+}
+,
+
+
+  {
+  id: "w17",
+  week: 17,
+  title: "Pelajaran 17: Nested Loop — Grid Colour",
+  phase: 4,
+  codeStarter: `
+import turtle
+t = turtle.Turtle()
+colors = ["red", "orange", "blue", "green", "purple", "yellow"]
+t.speed(0)
+for i in range(5):
+    for j in range(5):
+        t.pencolor(colors[j % len(colors)])
+        t.fillcolor(colors[j % len(colors)])
+        t.begin_fill()
+        for _ in range(4):
+            t.forward(30)
+            t.right(90)
+        t.end_fill()
+        t.penup()
+        t.forward(40)
+        t.pendown()
+    t.penup()
+    t.goto(0, (i + 1) * 40)
+    t.pendown()
+`,
+  instructions: [
+    "Nested loop = loop dalam loop, bagus untuk grid.",
+    "Setiap kotak ditukar warna automatik.",
+    "Tukar colors list untuk tambah warna baru dalam grid."
+  ],
+  challenge: "Cuba buat grid 8x8 sakura warna pink."
+},
+
+  {
+  id: "w18",
+  week: 18,
+  title: "Pelajaran 18: While Loop — Catch the Apple!",
+  phase: 4,
+  codeStarter: 
+`import random
+print("Game: Kumpul 5 Apple!\\n")
+score = 0
+attempt = 0
+while score < 5:
+    apple = random.choice([True, False, False])
+    attempt += 1
+    if apple:
+        score += 1
+        print(f"Percubaan {attempt} : Jumpa Apple! Total: {score}")
     else:
-        print("  ❌ Skipped!")
+        print(f"Percubaan {attempt} : 😅 Tak jumpa.")
     print()
+print(f"Tahniah, dapat 5 Apple dengan {attempt} cubaan!\\n")
+print("Ulang semula dan cuba kurang cubaan!")`,
+  instructions: [
+    "Satu game simple — while loop ulang sampai cukup apple (5).",
+    "Peluang boleh tukar apple True/False atau tukar target score.",
+    "Setiap cubaan, hint akan print jumpa apple atau tidak."
+  ],
+  challenge: "Target score tukar ke 10, dan cuba random.choice dengan peluang lebih banyak."
+}
+,
 
-if items >= target:
-    print("🎉 You collected all items!")
-else:
-    print(f"Need {target - items} more items...")
-
-print()
-print("=" * 40)`,
-    instructions: [
-      "🔄 While loop runs until condition false",
-      "Countdown: while count > 0",
-      "Careful: make sure loop ends!",
-      "Use counter or break statement",
-      "Good for games and simulations",
-    ],
-    challenge: "Buat countdown from 20 to 0, print 'Hurry!' bila count < 5",
-  },
 
   {
     id: "w19",
@@ -826,132 +702,74 @@ print("=" * 40)`,
 
   // ========== PHASE 5: BIG PROJECTS (MINGGU 20-24) ==========
   {
-    id: "w20",
-    week: 20,
-    title: "Creative Project: Drawing App",
-    phase: 5,
-    codeStarter: `# DRAWING APP SIMULATION
-print("🎨 DRAWING APP COMMANDS")
-print("=" * 40)
-print()
+  id: "w20",
+  week: 20,
+  title: "Pelajaran 20: Mini Drawing Pad",
+  phase: 5,
+  codeStarter: `
+import turtle
+t = turtle.Turtle()
+t.pencolor("orange")
+t.speed(0)
 
-print("Available commands:")
-print("  'forward' - Move forward")
-print("  'left' - Turn left 30°")
-print("  'right' - Turn right 30°")
-print("  'color' - Change color")
-print()
+for i in range(6):
+    t.forward(120)
+    t.right(60)
+t.penup()
+t.goto(50,50)
+t.pendown()
+t.pencolor("blue")
+for i in range(4):
+    t.forward(70)
+    t.left(90)
+`,
+  instructions: [
+    "Gunakan turtle untuk lukis dua bentuk (hexagon dan square).",
+    "Tukar warna dan koordinat mengikut kreatativiti sendiri.",
+    "Boleh tambah banyak lagi bentuk dengan arahan berbeza."
+  ],
+  challenge: "Tambah bulatan dan zig-zag pattern dengan kod tambahan."
+},
 
-# Simulate drawing
-position = [0, 0]
-angle = 0
-color = "black"
-colors = ["red", "blue", "green", "yellow", "purple"]
-color_index = 0
-
-commands = ["forward", "right", "forward", "color", "forward", "left", "forward"]
-
-print("Executing drawing commands:")
-print()
-
-for i, cmd in enumerate(commands, 1):
-    print(f"Step {i}: {cmd}")
-    
-    if cmd == "forward":
-        print(f"  Drawing with {color} - move forward 50")
-    elif cmd == "left":
-        angle -= 30
-        print(f"  Turn left - now facing {angle}°")
-    elif cmd == "right":
-        angle += 30
-        print(f"  Turn right - now facing {angle}°")
-    elif cmd == "color":
-        color_index = (color_index + 1) % len(colors)
-        color = colors[color_index]
-        print(f"  Color changed to {color}")
-    
-    print()
-
-print("✅ Drawing complete!")
-print()
-print("=" * 40)
-print("💡 In Thonny with turtle, guna arrow keys untuk control!")`,
-    instructions: [
-      "🎨 Interactive drawing app simulation!",
-      "Commands control turtle movement",
-      "Can change colors dynamically",
-      "This shows how keyboard controls work",
-      "Copy to Thonny for real interactive version!",
-    ],
-    challenge: "Design sequence untuk lukis house guna these commands",
-  },
 
   {
-    id: "w21",
-    week: 21,
-    title: "Project: Simple Calculator",
-    phase: 5,
-    codeStarter: `# CALCULATOR PROJECT - Full working version!
-print("=" * 40)
-print("🧮 SIMPLE CALCULATOR")
-print("=" * 40)
-print()
-
-def add(a, b):
+  id: "w21",
+  week: 21,
+  title: "Pelajaran 21: Calculator Interactive",
+  phase: 5,
+  codeStarter: `# Calculator Logic (Interactive di bawah!)
+def tambah(a, b):
     return a + b
 
-def subtract(a, b):
+def tolak(a, b):
     return a - b
 
-def multiply(a, b):
+def darab(a, b):
     return a * b
 
-def divide(a, b):
+def bahagi(a, b):
     if b == 0:
-        return "Error: Cannot divide by zero!"
+        return "Error: Tak boleh bahagi 0"
     return a / b
 
-def power(a, b):
-    return a ** b
-
-# Demo calculations
-print("Demo Mode:")
+# Test functions
+print("Calculator Functions:")
+print("10 + 5 =", tambah(10, 5))
+print("20 - 7 =", tolak(20, 7))
+print("6 × 4 =", darab(6, 4))
+print("20 ÷ 4 =", bahagi(20, 4))
 print()
-
-calculations = [
-    ("add", 10, 5),
-    ("subtract", 20, 7),
-    ("multiply", 6, 4),
-    ("divide", 20, 4),
-    ("power", 2, 3),
-]
-
-for operation, num1, num2 in calculations:
-    print(f"{num1} {operation} {num2} = ", end="")
-    
-    if operation == "add":
-        print(add(num1, num2))
-    elif operation == "subtract":
-        print(subtract(num1, num2))
-    elif operation == "multiply":
-        print(multiply(num1, num2))
-    elif operation == "divide":
-        print(divide(num1, num2))
-    elif operation == "power":
-        print(power(num1, num2))
-
-print()
-print("=" * 40)
-print("💡 Copy to Thonny for menu-based version with input()!")`,
-    instructions: [
-      "🧮 Full calculator with all operations!",
-      "Functions untuk setiap operation",
-      "Error handling for divide by zero",
-      "Works perfectly in browser!",
-      "Copy to Thonny for interactive menu",
-    ],
-    challenge: "Tambah modulo operation: a % b (remainder)",
-  },
+print("Cuba guna interactive calculator di bawah!")
+`,
+  instructions: [
+    "🧮 Belajar logic calculator dengan functions",
+    "Setiap operation ada function sendiri",
+    "Guna interactive calculator di bawah untuk test!",
+    "Cuba tukar nombor dalam code dan run"
+  ],
+  challenge: "Tambah function untuk modulo (%) dan power (**)"
+}
+,
 
   {
     id: "w22",
@@ -1022,177 +840,90 @@ print("🔄 Run again for a different story!")`,
   },
 
   {
-    id: "w23",
-    week: 23,
-    title: "Final Project: Quiz Game",
-    phase: 5,
-    codeStarter: `# QUIZ GAME - Full version!
-print("=" * 40)
-print("🎯 ULTIMATE QUIZ GAME")
-print("=" * 40)
-print()
-
-# Questions database
-questions = [
+  id: "w23",
+  week: 23,
+  title: "Pelajaran 23: Quiz Game Interactive",
+  phase: 5,
+  codeStarter: `# Quiz Logic dengan Dictionary
+quiz = [
     {
-        "question": "What is 5 + 3?",
-        "answer": "8",
-        "options": ["6", "7", "8", "9"]
+        "soalan": "5 + 3 = ?",
+        "pilihan": ["6", "7", "8", "9"],
+        "jawapan": "8"
     },
     {
-        "question": "What is the capital of Malaysia?",
-        "answer": "kuala lumpur",
-        "options": ["Penang", "Johor", "Kuala Lumpur", "Melaka"]
-    },
-    {
-        "question": "How many days in a week?",
-        "answer": "7",
-        "options": ["5", "6", "7", "8"]
-    },
-    {
-        "question": "What color is the sky?",
-        "answer": "blue",
-        "options": ["red", "blue", "green", "yellow"]
-    },
-    {
-        "question": "What is 10 * 2?",
-        "answer": "20",
-        "options": ["15", "20", "25", "30"]
+        "soalan": "Ibu negara Malaysia?",
+        "pilihan": ["Penang", "Johor", "KL", "Melaka"],
+        "jawapan": "KL"
     }
 ]
 
-score = 0
-
-# Simulate answers (tukar ni!)
-user_answers = ["8", "kuala lumpur", "7", "blue", "20"]
-
-for i, q in enumerate(questions):
-    print(f"Question {i+1}: {q['question']}")
-    print("Options:", ", ".join(q['options']))
-    
-    user_answer = user_answers[i].lower()
-    print(f"Your answer: {user_answer}")
-    
-    if user_answer == q['answer'].lower():
-        print("✅ Correct!")
-        score += 1
-    else:
-        print(f"❌ Wrong! Answer is {q['answer']}")
-    
+# Struktur data quiz
+print("Quiz Data Structure:")
+for i, q in enumerate(quiz, 1):
+    print(f"Q{i}: {q['soalan']}")
+    print("Pilihan:", q['pilihan'])
+    print("Jawapan:", q['jawapan'])
     print()
 
-# Results
-print("=" * 40)
-print(f"FINAL SCORE: {score} out of {len(questions)}")
+print("Main quiz interactive di bawah!")
+`,
+  instructions: [
+    "🎯 Belajar struktur data quiz dengan dictionary & list",
+    "Setiap soalan ada pilihan dan jawapan",
+    "Main quiz interactive di bawah!",
+    "Lihat macam mana data organized"
+  ],
+  challenge: "Tambah 2 soalan lagi dalam struktur quiz"
+}
+,
 
-if score == len(questions):
-    print("🏆 PERFECT SCORE! AMAZING!")
-elif score >= len(questions) * 0.7:
-    print("⭐ GREAT JOB!")
-elif score >= len(questions) * 0.5:
-    print("👍 GOOD EFFORT!")
-else:
-    print("💪 KEEP PRACTICING!")
+ {
+  id: "w24",
+  week: 24,
+  title: "Pelajaran 24: Graduation Fireworks!",
+  phase: 5,
+  codeStarter: `import random
 
-print("=" * 40)
-print()
-print("💡 Copy to Thonny untuk input() version!")`,
-    instructions: [
-      "🎯 Complete quiz game!",
-      "Tukar user_answers untuk test different scores",
-      "Tambah questions sendiri dalam database",
-      "Automatic grading system",
-      "Perfect capstone project!",
-    ],
-    challenge: "Tambah 3 soalan lagi dalam questions list",
-  },
-
-  {
-    id: "w24",
-    week: 24,
-    title: "Demo Day & Certificate",
-    phase: 5,
-    codeStarter: `# 🎉 CONGRATULATIONS! 🎉
-import random
-
+# Celebration ASCII Art
 print("=" * 50)
-print("🏆 PYTHON LEARNING JOURNEY COMPLETE! 🏆")
+print("🎓 TAHNIAH! GRADUATION! 🎓")
 print("=" * 50)
 print()
 
-# Your info (tukar ni!)
-student_name = "Ali"
-favorite_project = "Story Generator"
+# Student achievement stats
+nama = "CODER"  # Tukar nama kamu!
+lessons_complete = 24
+lines_of_code = random.randint(500, 1000)
 
-print("📜" * 20)
+print(f"Nama: {nama}")
+print(f"Lessons Completed: {lessons_complete}/24 ✅")
+print(f"Lines of Code: {lines_of_code}+ 💻")
 print()
-print("        🌟 CERTIFICATE OF ACHIEVEMENT 🌟")
-print()
-print(f"           This certifies that {student_name}")
-print("         has successfully completed")
-print("           24 WEEKS OF PYTHON PROGRAMMING")
-print()
-print("         Skills Mastered:")
+
+# Skills mastered
 skills = [
-    "✅ Print & Variables",
-    "✅ Math Operations",
-    "✅ Input & Output",
-    "✅ Turtle Graphics",
-    "✅ Loops & Logic",
-    "✅ Functions",
-    "✅ Lists & Strings",
-    "✅ Game Development"
+    "Print & Variables",
+    "Turtle Graphics", 
+    "Loops & Logic",
+    "Functions",
+    "Game Development"
 ]
 
+print("Skills Mastered:")
 for skill in skills:
-    print(f"         {skill}")
+    print(f"  ✅ {skill}")
 
 print()
-print(f"         Favorite Project: {favorite_project}")
-print()
-print("         You are now a Python Programmer! 🐍")
-print()
-print("📜" * 20)
-print()
-
-# Achievement stats
-print("=" * 50)
-print("YOUR ACHIEVEMENT STATS:")
-print("=" * 50)
-print(f"Lessons Completed: 24/24 ✅")
-print(f"Challenges Solved: {random.randint(20, 24)}")
-print(f"Code Lines Written: {random.randint(500, 1000)}+")
-print(f"Bugs Fixed: {random.randint(50, 100)} 🐛")
-print(f"Fun Level: {random.randint(95, 100)}% 🎉")
-print()
-
-print("=" * 50)
-print("WHAT'S NEXT?")
-print("=" * 50)
-next_steps = [
-    "1. Build more complex games",
-    "2. Learn web development (HTML, CSS, JavaScript)",
-    "3. Explore data science with Python",
-    "4. Create mobile apps",
-    "5. Keep coding every day!",
-    "6. Share your projects with friends!",
-    "7. Never stop learning! 🚀"
-]
-
-for step in next_steps:
-    print(f"  {step}")
-
-print()
-print("🌟 The journey has just begun! Keep coding! 🚀")
-print("=" * 50)`,
-    instructions: [
-      "🎓 Graduation day!",
-      "Tukar student_name kepada nama kamu",
-      "Tukar favorite_project",
-      "Celebrate your amazing achievement!",
-      "You completed 24 weeks of Python! 🎉",
-      "Share this with your family!",
-    ],
-    challenge: "Build your dream project and show it to the world! 🌍",
-  },
+print("🎉 Saksikan fireworks di bawah!")
+print("🌟 Teruskan belajar dan buat projek awesome!")
+`,
+  instructions: [
+    "🎓 Tamat semua pelajaran!",
+    "Code show achievement & stats",
+    "Fireworks animation interactive di bawah",
+    "Tukar nama dan celebrate!"
+  ],
+  challenge: "Share achievement dengan family & kawan! Teach orang lain!"
+}
 ];
