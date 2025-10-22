@@ -30,7 +30,7 @@ export default function Dashboard({ onStartLesson, progress }: Props) {
               WebkitBackgroundClip: "text", 
               WebkitTextFillColor: "transparent" 
             }}>
-              Alex
+              Nik Toha 
             </div>
             <div style={{ fontSize: "clamp(12px, 3vw, 16px)", marginTop: 4, display: "flex", flexWrap: "wrap", gap: 6 }}>
               <span style={{ background: "#fef3c7", padding: "4px 8px", borderRadius: 8, fontSize: "clamp(11px, 2.5vw, 14px)" }}>
