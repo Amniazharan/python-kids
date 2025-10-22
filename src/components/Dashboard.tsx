@@ -18,30 +18,31 @@ export default function Dashboard({ onStartLesson, progress }: Props) {
   ];
 
   return (
-    <div style={{ background: "var(--bg)", minHeight: "calc(100vh - 80px)", padding: 20 }}>
-      <div className="card celebration" style={{ marginBottom: 20 }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-            <div style={{ fontSize: 60 }}>🧒</div>
-            <div>
-              <div style={{ fontWeight: 900, fontSize: 28, background: "linear-gradient(135deg, #667eea, #764ba2)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                Alex
-              </div>
-              <div style={{ fontSize: 16, marginTop: 4, color: "#64748b", fontWeight: 600 }}>
-                <span style={{ background: "#fef3c7", padding: "4px 10px", borderRadius: 8, marginRight: 8 }}>
-                  ⚡ {p.xp} XP
-                </span>
-                <span style={{ background: "#dbeafe", padding: "4px 10px", borderRadius: 8, marginRight: 8 }}>
-                  🏆 Level {p.level}
-                </span>
-                <span style={{ background: "#fee2e2", padding: "4px 10px", borderRadius: 8 }}>
-                  🔥 {p.streak} Day Streak
-                </span>
-              </div>
+    <div style={{ background: "var(--bg)", minHeight: "100vh", padding: "16px", paddingBottom: 40 }}>
+      <div className="card celebration" style={{ marginBottom: 16 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+          <div style={{ fontSize: "clamp(40px, 10vw, 60px)" }}>🧒</div>
+          <div style={{ flex: 1 }}>
+            <div style={{ 
+              fontWeight: 900, 
+              fontSize: "clamp(20px, 5vw, 28px)", 
+              background: "linear-gradient(135deg, #667eea, #764ba2)", 
+              WebkitBackgroundClip: "text", 
+              WebkitTextFillColor: "transparent" 
+            }}>
+              Alex
             </div>
-          </div>
-          <div className="badge" style={{ fontSize: 15, padding: "10px 18px" }}>
-            📚 24 Week Journey
+            <div style={{ fontSize: "clamp(12px, 3vw, 16px)", marginTop: 4, display: "flex", flexWrap: "wrap", gap: 6 }}>
+              <span style={{ background: "#fef3c7", padding: "4px 8px", borderRadius: 8, fontSize: "clamp(11px, 2.5vw, 14px)" }}>
+                ⚡ {p.xp} XP
+              </span>
+              <span style={{ background: "#dbeafe", padding: "4px 8px", borderRadius: 8, fontSize: "clamp(11px, 2.5vw, 14px)" }}>
+                🏆 Lvl {p.level}
+              </span>
+              <span style={{ background: "#fee2e2", padding: "4px 8px", borderRadius: 8, fontSize: "clamp(11px, 2.5vw, 14px)" }}>
+                🔥 {p.streak}d
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -49,47 +50,50 @@ export default function Dashboard({ onStartLesson, progress }: Props) {
       {phases.map(phase => {
         const phaseLessons = lessons.filter(l => l.phase === phase.num);
         return (
-          <div key={phase.num} style={{ marginBottom: 24 }}>
+          <div key={phase.num} style={{ marginBottom: 20 }}>
             <div className="phase-header" style={{ background: phase.gradient }}>
-              <div style={{ fontSize: 32, marginBottom: 6 }}>{phase.emoji}</div>
-              <div style={{ fontSize: 22, fontWeight: 900 }}>
+              <div style={{ fontSize: "clamp(24px, 6vw, 32px)", marginBottom: 4 }}>{phase.emoji}</div>
+              <div style={{ fontSize: "clamp(16px, 4vw, 22px)", fontWeight: 900 }}>
                 Phase {phase.num}: {phase.title}
               </div>
-              <div style={{ fontSize: 14, opacity: 0.9, marginTop: 4 }}>
-                {phaseLessons.length} lessons • Complete all to unlock next phase
+              <div style={{ fontSize: "clamp(11px, 2.5vw, 14px)", opacity: 0.9, marginTop: 4 }}>
+                {phaseLessons.length} lessons
               </div>
             </div>
 
-            <div className="grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 16 }}>
+            <div className="grid" style={{ 
+              gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 280px), 1fr))",
+              gap: 12 
+            }}>
               {phaseLessons.map(ls => (
                 <div key={ls.id} className="lesson-card">
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", marginBottom: 10 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", marginBottom: 8 }}>
                     <div style={{ 
                       background: phase.gradient,
                       color: "white",
-                      padding: "6px 12px",
-                      borderRadius: 10,
+                      padding: "5px 10px",
+                      borderRadius: 8,
                       fontWeight: 800,
-                      fontSize: 13
+                      fontSize: 12
                     }}>
                       Week {ls.week}
                     </div>
-                    <div style={{ fontSize: 24 }}>{phase.emoji}</div>
+                    <div style={{ fontSize: 20 }}>{phase.emoji}</div>
                   </div>
                   
-                  <div style={{ fontWeight: 800, fontSize: 16, marginBottom: 6, color: "#1e293b" }}>
+                  <div style={{ fontWeight: 800, fontSize: 14, marginBottom: 4, color: "#1e293b" }}>
                     {ls.title}
                   </div>
                   
-                  <div style={{ fontSize: 13, color: "#64748b", marginBottom: 14 }}>
+                  <div style={{ fontSize: 12, color: "#64748b", marginBottom: 12, lineHeight: 1.4 }}>
                     {ls.instructions[0]}
                   </div>
                   
                   <button 
                     onClick={() => onStartLesson(ls.id)} 
-                    style={{ width: "100%", fontSize: 14 }}
+                    style={{ width: "100%", fontSize: 13 }}
                   >
-                    Start Lesson →
+                    Start →
                   </button>
                 </div>
               ))}
@@ -98,15 +102,15 @@ export default function Dashboard({ onStartLesson, progress }: Props) {
         );
       })}
 
-      <div className="card" style={{ marginTop: 24 }}>
-        <h3 style={{ marginBottom: 16, fontSize: 22 }}>🏆 Your Badge Collection</h3>
-        <div className="grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))" }}>
+      <div className="card" style={{ marginTop: 20 }}>
+        <h3 style={{ marginBottom: 12, fontSize: "clamp(16px, 4vw, 22px)" }}>🏆 Badges</h3>
+        <div className="grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 140px), 1fr))" }}>
           {p.badges.map((b, i) => (
-            <div key={i} className="card lesson-card" style={{ textAlign: "center", padding: 20 }}>
-              <div style={{ fontSize: 48, marginBottom: 8 }}>{b.earned ? "🏆" : "🔒"}</div>
-              <div style={{ fontWeight: 800, fontSize: 15, marginBottom: 4 }}>{b.name}</div>
+            <div key={i} className="card lesson-card" style={{ textAlign: "center", padding: 14 }}>
+              <div style={{ fontSize: "clamp(32px, 8vw, 48px)", marginBottom: 6 }}>{b.earned ? "🏆" : "🔒"}</div>
+              <div style={{ fontWeight: 800, fontSize: 13, marginBottom: 2 }}>{b.name}</div>
               <div style={{ 
-                fontSize: 12, 
+                fontSize: 11, 
                 color: b.earned ? "#10b981" : "#64748b",
                 fontWeight: 600
               }}>

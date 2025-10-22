@@ -21,6 +21,7 @@ body {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   background-attachment: fixed;
+  overflow-x: hidden;
 }
 
 button {
@@ -37,6 +38,8 @@ button {
   box-shadow: 0 8px 20px rgba(99,102,241,0.35);
   position: relative;
   overflow: hidden;
+  white-space: nowrap;
+  min-height: 48px; /* Better touch target */
 }
 
 button::before {
@@ -66,6 +69,11 @@ button:active {
   transform: translateY(0) scale(0.98);
 }
 
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 button.secondary { 
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   box-shadow: 0 8px 20px rgba(16,185,129,0.35);
@@ -89,12 +97,13 @@ button.back {
   box-shadow: 0 4px 12px rgba(100,116,139,0.25);
   padding: 10px 16px;
   font-size: 14px;
+  min-height: 44px;
 }
 
 .card {
   background: var(--card-bg);
   border-radius: 24px; 
-  padding: 24px; 
+  padding: 20px; 
   box-shadow: 0 10px 30px rgba(0,0,0,0.12);
   border: 1px solid rgba(255,255,255,0.5);
   backdrop-filter: blur(10px);
@@ -102,7 +111,7 @@ button.back {
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
   box-shadow: 0 15px 40px rgba(0,0,0,0.18);
 }
 
@@ -111,7 +120,7 @@ button.back {
   padding: 12px 16px; 
   border-radius: 14px; 
   border: 2px solid #e5e7eb; 
-  font-size: 16px;
+  font-size: 16px; /* Prevent zoom on iOS */
   transition: all .2s ease;
   background: #f9fafb;
 }
@@ -125,7 +134,7 @@ button.back {
 
 .grid { 
   display: grid; 
-  gap: 20px; 
+  gap: 16px; 
 }
 
 .badge {
@@ -145,7 +154,7 @@ button.back {
 .phase-header {
   background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
   color: white;
-  padding: 20px 24px;
+  padding: 20px;
   border-radius: 20px;
   margin-bottom: 16px;
   box-shadow: 0 8px 24px rgba(99,102,241,0.3);
@@ -176,6 +185,7 @@ button.back {
   font-size: 13px;
   line-height: 1.6;
   box-shadow: inset 0 2px 10px rgba(0,0,0,0.3);
+  overflow-x: auto;
 }
 
 .mascot {
@@ -217,4 +227,90 @@ button.back {
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #4f46e5, #7c3aed);
+}
+
+/* ============================================ */
+/* MOBILE RESPONSIVE (max-width: 768px)        */
+/* ============================================ */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  button {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-radius: 12px;
+    min-height: 44px; /* iOS minimum touch */
+  }
+
+  .card {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .badge {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .phase-header {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .lesson-card {
+    padding: 14px;
+  }
+
+  .output-panel {
+    font-size: 11px;
+    padding: 12px;
+    min-height: 150px;
+  }
+
+  .mascot {
+    font-size: 36px;
+  }
+
+  /* Single column layout for mobile */
+  .grid {
+    gap: 12px;
+  }
+}
+
+/* Small mobile phones */
+@media (max-width: 480px) {
+  button {
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+
+  .card {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  h1 {
+    font-size: 24px !important;
+  }
+
+  h2 {
+    font-size: 20px !important;
+  }
+
+  h3 {
+    font-size: 18px !important;
+  }
+
+  .badge {
+    font-size: 10px;
+    padding: 5px 8px;
+  }
+
+  .output-panel {
+    font-size: 10px;
+    padding: 10px;
+  }
 }

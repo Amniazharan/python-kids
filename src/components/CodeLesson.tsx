@@ -20,7 +20,6 @@ export default function CodeLesson({
   const [showCanvas, setShowCanvas] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  // Check if lesson uses turtle
   const usesTurtle = useMemo(() => {
     return code.includes("import turtle") || code.includes("from turtle");
   }, [code]);
@@ -52,21 +51,18 @@ export default function CodeLesson({
   };
 
   return (
-    <div style={{ background: "var(--bg)", minHeight: "calc(100vh - 80px)" }}>
-      <div style={{ padding: 16 }}>
-        <button className="back" onClick={onBack} style={{ marginBottom: 16 }}>
-          ← Back to Learning
+    <div style={{ background: "var(--bg)", minHeight: "100vh", paddingBottom: 20 }}>
+      <div style={{ padding: "12px 16px" }}>
+        <button className="back" onClick={onBack}>
+          ← Back
         </button>
       </div>
 
-      <div className="grid" style={{ 
-        padding: "0 16px 16px 16px", 
-        gridTemplateColumns: showCanvas ? "1fr 1fr 1fr" : "1fr 1.2fr",
-        gap: 20 
-      }}>
-        {/* Instructions Panel */}
-        <div className="card" style={{ overflowY: "auto", maxHeight: "82vh" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
+      {/* Mobile: Stack vertically */}
+      <div style={{ padding: "0 16px" }}>
+        {/* Instructions */}
+        <div className="card" style={{ marginBottom: 16 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10, flexWrap: "wrap" }}>
             <div className="badge">Week {lesson.week}</div>
             <div className="badge" style={{ background: "linear-gradient(135deg, #fef3c7, #fde68a)" }}>
               Phase {lesson.phase}
@@ -75,37 +71,37 @@ export default function CodeLesson({
           
           <h2 style={{ 
             marginTop: 0, 
-            marginBottom: 12, 
+            marginBottom: 10, 
             background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
-            fontSize: 22
+            fontSize: "clamp(18px, 5vw, 22px)"
           }}>
             {lesson.title}
           </h2>
           
           <div style={{ 
             background: "linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)", 
-            padding: 16, 
-            borderRadius: 16, 
-            marginBottom: 16,
+            padding: 12, 
+            borderRadius: 12, 
+            marginBottom: 12,
             border: "2px solid #93c5fd"
           }}>
-            <div style={{ fontWeight: 800, marginBottom: 10, fontSize: 14, color: "#1e40af" }}>
+            <div style={{ fontWeight: 800, marginBottom: 8, fontSize: 13, color: "#1e40af" }}>
               📚 Instructions:
             </div>
             {lesson.instructions.map((line, i) => (
-              <div key={i} style={{ margin: "5px 0", fontSize: 13, lineHeight: 1.5 }}>
+              <div key={i} style={{ margin: "4px 0", fontSize: 12, lineHeight: 1.5 }}>
                 {line}
               </div>
             ))}
           </div>
 
           {lesson.challenge && (
-            <div style={{ marginBottom: 16 }}>
+            <div style={{ marginBottom: 12 }}>
               <button 
                 className="accent" 
-                style={{ width: "100%", fontSize: 14 }}
+                style={{ width: "100%", fontSize: 13 }}
                 onClick={() => setShowChallenge(!showChallenge)}
               >
                 {showChallenge ? "🙈 Hide" : "💪 Show"} Challenge
@@ -113,15 +109,15 @@ export default function CodeLesson({
               {showChallenge && (
                 <div className="celebration" style={{ 
                   background: "linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)", 
-                  padding: 14, 
-                  borderRadius: 14, 
-                  marginTop: 10,
+                  padding: 12, 
+                  borderRadius: 12, 
+                  marginTop: 8,
                   border: "2px solid #fbbf24"
                 }}>
-                  <div style={{ fontWeight: 800, marginBottom: 4, color: "#92400e", fontSize: 13 }}>
+                  <div style={{ fontWeight: 800, marginBottom: 4, color: "#92400e", fontSize: 12 }}>
                     🎯 Challenge:
                   </div>
-                  <div style={{ fontSize: 13, lineHeight: 1.5, color: "#78350f" }}>
+                  <div style={{ fontSize: 12, lineHeight: 1.5, color: "#78350f" }}>
                     {lesson.challenge}
                   </div>
                 </div>
@@ -132,40 +128,40 @@ export default function CodeLesson({
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
             <button 
               onClick={run} 
-              style={{ flex: 1, minWidth: 120, fontSize: 14 }}
+              style={{ flex: 1, minWidth: "120px", fontSize: 13 }}
               disabled={isRunning}
             >
-              {isRunning ? "⏳ Running..." : "▶ Run Code"}
+              {isRunning ? "⏳ Running..." : "▶ Run"}
             </button>
             <button 
               className="secondary" 
               onClick={() => onDone(50)} 
-              style={{ flex: 1, minWidth: 120, fontSize: 14 }}
+              style={{ flex: 1, minWidth: "120px", fontSize: 13 }}
             >
-              ✅ Complete
+              ✅ Done
             </button>
           </div>
         </div>
 
-        {/* Code Editor Panel */}
-        <div className="card">
+        {/* Code Editor */}
+        <div className="card" style={{ marginBottom: 16 }}>
           <div style={{ 
             marginBottom: 10, 
             fontWeight: 800, 
             display: "flex", 
             justifyContent: "space-between",
             alignItems: "center",
-            fontSize: 15
+            fontSize: 14
           }}>
             <span>💻 Code Editor</span>
-            {usesTurtle && <span style={{ fontSize: 11, color: "#10b981" }}>🐢 Turtle Active</span>}
+            {usesTurtle && <span style={{ fontSize: 10, color: "#10b981" }}>🐢 Turtle</span>}
           </div>
           <textarea
             className="input"
             style={{ 
-              height: showCanvas ? 300 : 420, 
+              height: 250, 
               fontFamily: "'Consolas', 'Monaco', 'Courier New', monospace",
-              fontSize: 13,
+              fontSize: 12,
               lineHeight: 1.5,
               resize: "vertical"
             }}
@@ -173,26 +169,27 @@ export default function CodeLesson({
             onChange={e => setCode(e.target.value)}
             placeholder="Type your Python code here..."
           />
-          
-          <div style={{ marginTop: 12 }}>
-            <div style={{ fontWeight: 800, marginBottom: 8, fontSize: 15 }}>📺 Output</div>
-            <div className="output-panel" style={{ minHeight: showCanvas ? 120 : 180 }}>
-              <pre style={{ margin: 0, whiteSpace: "pre-wrap", fontSize: 12 }}>
-                {out || "👉 Click 'Run Code' to see output..."}
+        </div>
+
+        {/* Output */}
+        <div className="card" style={{ marginBottom: showCanvas ? 16 : 0 }}>
+          <div style={{ fontWeight: 800, marginBottom: 8, fontSize: 14 }}>📺 Output</div>
+          <div className="output-panel" style={{ minHeight: 120 }}>
+            <pre style={{ margin: 0, whiteSpace: "pre-wrap", fontSize: 11 }}>
+              {out || "👉 Click 'Run' to see output..."}
+            </pre>
+            {err && (
+              <pre style={{ color: "#fca5a5", marginTop: 10, whiteSpace: "pre-wrap", fontSize: 11 }}>
+                {err}
               </pre>
-              {err && (
-                <pre style={{ color: "#fca5a5", marginTop: 10, whiteSpace: "pre-wrap", fontSize: 12 }}>
-                  {err}
-                </pre>
-              )}
-            </div>
+            )}
           </div>
         </div>
 
-        {/* Turtle Canvas Panel */}
+        {/* Turtle Canvas */}
         {showCanvas && (
           <div className="card">
-            <div style={{ fontWeight: 800, marginBottom: 12, fontSize: 15 }}>
+            <div style={{ fontWeight: 800, marginBottom: 10, fontSize: 14 }}>
               🐢 Turtle Graphics
             </div>
             <canvas
@@ -205,11 +202,13 @@ export default function CodeLesson({
                 background: "white",
                 width: "100%",
                 height: "auto",
-                maxHeight: "600px"
+                maxWidth: "400px",
+                display: "block",
+                margin: "0 auto"
               }}
             />
-            <div style={{ fontSize: 11, color: "#64748b", marginTop: 8, textAlign: "center" }}>
-              Graphics will appear here when you run turtle code
+            <div style={{ fontSize: 10, color: "#64748b", marginTop: 8, textAlign: "center" }}>
+              Graphics appear here when you run turtle code
             </div>
           </div>
         )}
