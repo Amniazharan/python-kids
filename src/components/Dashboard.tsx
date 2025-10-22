@@ -1,4 +1,3 @@
-import React from "react";
 import { defaultProgress } from "../lib/gamification";
 import { lessons } from "../lib/lessons";
 

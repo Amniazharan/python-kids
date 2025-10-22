@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useRef, useEffect } from "react";
+import { useMemo, useState, useRef, useEffect } from "react";
 import { lessons } from "../lib/lessons";
 import { runPython } from "../lib/pyRunner";
 

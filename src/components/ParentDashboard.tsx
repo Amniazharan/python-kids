@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function ParentDashboard({ onBack }: { onBack(): void }) {
 return (
 <div className="grid" style={{ padding: 16 }}>

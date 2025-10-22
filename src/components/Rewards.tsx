@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Rewards({ onContinue }: { onContinue(): void }) {
   return (
     <div style={{ 
