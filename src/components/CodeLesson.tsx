@@ -187,9 +187,13 @@ export default function CodeLesson({
           <div className="card" style={{ marginBottom: showCanvas ? 16 : 0 }}>
             <div style={{ fontWeight: 800, marginBottom: 8, fontSize: 14 }}>📺 Output</div>
             <div className="output-panel" style={{ minHeight: 120 }}>
-              <pre style={{ margin: 0, whiteSpace: "pre-wrap", fontSize: 11 }}>
-                {out || "👉 Click 'Run' to see output..."}
-              </pre>
+              <div style={{ margin: 0, whiteSpace: "pre-wrap", fontFamily: "monospace", fontSize: 11, lineHeight: 1.6 }}>
+  {out.split('\n').map((line, i) => (
+    <div key={i}>{line || '\u00A0'}</div>
+  ))}
+  {!out && "👉 Click 'Run' to see output..."}
+</div>
+
               {err && (
                 <pre style={{ color: "#fca5a5", marginTop: 10, whiteSpace: "pre-wrap", fontSize: 11 }}>
                   {err}

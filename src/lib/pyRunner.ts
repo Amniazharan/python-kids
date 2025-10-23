@@ -78,13 +78,11 @@ export async function runPython(
   // Check for input() - replace with mock input
   let modifiedCode = code;
   if (code.includes("input(")) {
-    // Replace input() with pre-defined values (or prompt user)
     const inputMatches = code.match(/input\(['"](.*?)['"]\)/g);
     if (inputMatches) {
       stderr += "⚠️ Note: input() detected. Using mock values.\n";
       stderr += "For real input, app will show popup dialog.\n\n";
       
-      // For now, replace with empty string - can be enhanced with prompt()
       modifiedCode = code.replace(/input\(['"](.*?)['"]\)/g, '""');
     }
   }
@@ -92,13 +90,31 @@ export async function runPython(
   try {
     const py = await loadPyodideOnce();
     
-    py.setStdout({ batched: (s: string) => { stdout += s; } });
-    py.setStderr({ batched: (s: string) => { stderr += s; } });
+    // CRITICAL: Do NOT modify the output chunks - keep all whitespace/newlines
+    py.setStdout({ 
+      batched: (s: string) => { 
+        stdout += s;  // Keep exact string including all newlines
+      } 
+    });
+    py.setStderr({ 
+      batched: (s: string) => { 
+        stderr += s;  // Keep exact string including all newlines
+      } 
+    });
 
     await py.runPythonAsync(modifiedCode);
 
+    // CRITICAL FIX: Do NOT trim stdout/stderr
+    // If output exists but doesn't end with newline, add one for proper rendering
+    if (stdout && !stdout.endsWith('\n')) {
+      stdout += '\n';
+    }
+    if (stderr && !stderr.endsWith('\n')) {
+      stderr += '\n';
+    }
+
     if (!stdout && !stderr) {
-      stdout = "✅ Code executed successfully!\n(No output to display)";
+      stdout = "✅ Code executed successfully!\n(No output to display)\n";
     }
 
   } catch (error) {
