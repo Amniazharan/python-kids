@@ -934,12 +934,12 @@ print("Fireworks di bawah!")
 print("")
 print("Teruskan belajar dan buat projek awesome!")`,
     instructions: [
-      "🎓 TAHNIAH! Kamu dah tamat semua 24 pelajaran Python!",
-      "Kamu dah belajar: print, variables, math, strings, loops, if-else, lists, functions, turtle graphics, dan banyak lagi!",
-      "Sekarang kamu boleh buat games, art, calculators, dan program sendiri!",
+      "🎓 TAHNIAH! Adik-adik dah tamat semua 24 pelajaran Python!",
+      "Adik dah belajar: print, variables, math, strings, loops, if-else, lists, functions, turtle graphics, dan banyak lagi!",
+      "Sekarang adik-adik boleh buat games, art, calculators, dan program sendiri!",
       "Keep practicing - coding adalah skill yang improve dengan practice",
       "Next steps: buat project sendiri, join coding community, keep learning!",
-      "Fireworks animation di bawah untuk celebrate achievement kamu!",
+      "Fireworks animation di bawah untuk celebrate achievement adik-adik!",
       "Remember: Every expert was once a beginner. Kamu awesome! 🌟"
     ],
     challenge: "Share achievement dengan family & friends! Teach someone what you learned!"
